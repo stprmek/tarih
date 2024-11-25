@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Video Projesi</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-line {
+            display: block;
+            margin: 10px 0;
+            font-size: 24px;
+        }
+
+        #videoPlayer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill; /* Video ekranı tamamen dolduracak */
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="playVideo()">
+        <span class="text-line">Muhammed Ebubekir Karali</span>
+        <span class="text-line">11-A</span>
+        <span class="text-line">777</span>
+    </div>
+
+    <video id="videoPlayer" controls>
+        <source src="Video.mp4" type="video/mp4">
+        Tarayıcınız video elementini desteklemiyor.
+    </video>
+
+    <script>
+        function playVideo() {
+            const video = document.getElementById('videoPlayer');
+            const container = document.querySelector('.container');
+            
+            video.style.display = 'block';
+            container.style.display = 'none';
+            video.play();
+        }
+    </script>
+</body>
+</html>
